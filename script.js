@@ -41,7 +41,7 @@ button.addEventListener("click", function (name) {
     <td>${r.name} </td>
     <td>${r.playcount}</td>
     <td>${r.artist.name}</td> 
-    <td>${r.image[0].text}</td>          
+    <td><img src="${r["image"][0]["#text"]}"</td>          
 </tr>`;
     }
     // Setting innerHTML as tab variable

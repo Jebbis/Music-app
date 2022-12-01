@@ -1,32 +1,24 @@
 var input = document.querySelector(".input_text");
-
 var button = document.querySelector(".submit");
 
 button.addEventListener("click", function (name) {
+  // Save the api url to varible for easier use
   const api_url =
     "https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" +
     input.value +
     "&format=json&api_key=f44e35abb47498a46327f65e1136bb80";
 
-  // api url
-
-  // Defining async function
+  //Save the data from api call to jason
   async function getapi(url) {
-    // Storing response
     const response = await fetch(url);
-
-    // Storing data in form of JSON
     var data = await response.json();
     console.log(data);
 
     show(data);
   }
-  // Calling that async function
   getapi(api_url);
 
-  // Function to hide the loader
-
-  // Function to define innerHTML for HTML table
+  //Function to create the content of the table
   function show(data) {
     let tab = `<thead>
           <tr>
@@ -37,9 +29,8 @@ button.addEventListener("click", function (name) {
           </tr>
          </thead>`;
 
-    // Loop to access all rows
+    //Function to loop the first 6 results from api.
     let i = 0;
-
     for (let r of data.topalbums.album) {
       i++;
       if (i < 6) {
@@ -51,7 +42,7 @@ button.addEventListener("click", function (name) {
       </tr>`;
       }
     }
-    // Setting innerHTML as tab variable
+    //Changing the table content in html and sdding the title of the table
     document.getElementById("top-albums").innerHTML = "Top albums by artist";
     document.getElementById("artists").innerHTML = tab;
   }
@@ -62,26 +53,18 @@ button.addEventListener("click", function (name) {
     "https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" +
     input.value +
     "&format=json&api_key=f44e35abb47498a46327f65e1136bb80";
+  // Save the api url to varible for easier use
 
-  // api url
-
-  // Defining async function
+  //Save the data from api call to jason
   async function getapi(url) {
-    // Storing response
     const response = await fetch(url);
-
-    // Storing data in form of JSON
     var data = await response.json();
     console.log(data);
-
     show(data);
   }
-  // Calling that async function
   getapi(api_url);
 
-  // Function to hide the loader
-
-  // Function to define innerHTML for HTML table
+  //Function to create the content of the table
   function show(data) {
     let tab = `<thead>
           <tr>
@@ -92,9 +75,8 @@ button.addEventListener("click", function (name) {
           </tr>
          </thead>`;
 
-    // Loop to access all rows
+    //Function to loop the first 6 results from api.
     let i = 0;
-
     for (let r of data.toptracks.track) {
       i++;
       if (i < 6) {
@@ -107,7 +89,7 @@ button.addEventListener("click", function (name) {
       }
     }
 
-    // Setting innerHTML as tab variable
+    //Changing the table content in html and sdding the title of the table
     document.getElementById("album").innerHTML = tab;
     document.getElementById("top-tracks").innerHTML = "Top tracks by artist";
   }

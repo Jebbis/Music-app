@@ -61,3 +61,48 @@ input[type="submit"] {
   margin: 40px 0;
   font-size: 20px;
 }
+
+.table-container {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.artist-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.artist-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.artist-table th,
+.artist-table td {
+  padding: 12px 15px;
+}
+
+.artist-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.artist-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.artist-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.artist-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
